@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <style>
+     body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #6dd5ed, #2193b0);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+        .container {
+            background: white;
+            width: 350px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #243b55;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        #inp {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #inp:focus {
+            border-color: #243b55;
+            box-shadow: 0 0 5px #243b55;
+        }
+
+        #add-btn {
+            padding: 10px 15px;
+            border: none;
+            background: #243b55;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #add-btn:hover {
+            background: #141e30;
+            transform: scale(1.05);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background: #f1f5f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 0.4s ease-in-out;
+            transition: 0.3s;
+        }
+
+        li:hover {
+            transform: translateX(5px);
+        }
+
+        .complete-btn {
+            background: #00b894;
+            border: none;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .complete-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            border: none;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .delete-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .task-text {
+            flex: 1;
+            margin: 0 10px;
+            text-align: left;
+        }
+
+        .task-marked {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>My Todo List</h2>
+
+    <div class="input-section">
+        <input type="text" id="inp" placeholder="Enter your task">
+        <button id="add-btn">Add</button>
+    </div>
+
+    <ul id="tasklist"></ul>
+</div>
+
+<script>
+    const task_input = document.getElementById("inp");
+    const add_btn = document.getElementById("add-btn");
+    const task_list = document.getElementById("tasklist");
+
+    add_btn.addEventListener("click", function () {
+
+        const input_value = task_input.value;
+
+        if (input_value === "") {
+            alert("Please enter a task!");
+            return;
+        }
+
+        const list_item = document.createElement("li");
+
+        const button_com = document.createElement("button");
+        button_com.className = "complete-btn";
+        button_com.textContent = "✔";
+
+        const span_text = document.createElement("span");
+        span_text.className = "task-text";
+        span_text.textContent = input_value;
+
+        const delete_button = document.createElement("button");
+        delete_button.className = "delete-btn";
+        delete_button.textContent = "Delete";
+
+        button_com.addEventListener("click", function () {
+            span_text.classList.toggle("task-marked");
+        });
+
+        delete_button.addEventListener("click", function () {
+            task_list.removeChild(list_item);
+        });
+
+        list_item.appendChild(button_com);
+        list_item.appendChild(span_text);
+        list_item.appendChild(delete_button);
+
+        task_list.appendChild(list_item);
+
+        task_input.value = "";
+    });
+</script>
+
+</body>
+</html>
