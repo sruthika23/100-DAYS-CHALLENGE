@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <p class="task" ></p>
+    <p class="task" ></p>
+     <p class="task" ></p>
+     <script>
+       const task= document.getElementsByClassName("task");
+       for(let i=0;i<task.length;i++)
+       {
+        task[i].textContent="goal";
+        task[i].style.color="red";
+       }
+     </script>
+</body>
+</html>
