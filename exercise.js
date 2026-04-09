@@ -25,7 +25,7 @@
 // display("sruthi");
 
 // 5th
-const multiply=(x,y)=> x*y;
+const multiply=(y,z)=> Y*Z;
 console.log("Multiplication:"+multiply(5,8));
 
 // 6th
