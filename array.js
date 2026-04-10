@@ -8,7 +8,7 @@
 //     sum=sum+arr[i];
 // }
 // console.log(sum);
-let mars = [45, 60, 30, 80, 55];
+let mars = [46, 60, 30, 80, 55];
 // for(let i=0;i<marks.length;i++)
 // {
 // if (marks[i]>50){
