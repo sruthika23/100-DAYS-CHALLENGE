@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+#treasure-chest{
+    background-color: rgb(193, 222, 248);
+    display :flex;
+    justify-content:center;
+    align-items:center; 
+    height:100vh;
+    border: 2px solid rgb(11, 17, 22);
+
+}
+#demo{
+    background-color:lightslategray;
+    border: 8px solid rgb(11, 17, 22);
+    height:350px;
+    width:350px;
+    padding:45px;
+font-size:220px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+</style>
+
+<body>
+    <div id="treasure-chest">
+        <img id="demo" src="pic/treasure.jpg">
+    </div>
+</body>
+<script>
+    const chest=document.getElementById("demo");
+chest.onmouseenter=function(e){
+    e.target.src="pic/treasure2.png";
+            e.target.style.backgroundColor="khaki";
+}
+            chest.onmouseleave=function(e){
+    e.target.src="pic/treasure.jpg";
+            e.target.style.backgroundColor = "";
+            
+
+}
+</script>
+</html>
