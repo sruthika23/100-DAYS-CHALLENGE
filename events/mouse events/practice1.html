@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+    }
+     #box{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        height:100vh; 
+     }
+    
+    .red{
+        width:100px;
+        height:100px;
+        background-color: chartreuse;
+        margin:10px;
+        display:inline-block;
+         text-align:center;
+    }
+    
+    
+
+</style>
+<body>
+    <div id="box">
+        <div class ="red"><center>box1</center></div>
+        <div class="red"><center>box2</center></div>
+        <div class="red"><center>box3</center></div>
+    </div>
+</body>
+<script>
+     const box=document.querySelectorAll(".red");
+     box.forEach(function(box){
+     box.onmouseenter=function(e){
+        e.target.style.backgroundColor="blue";
+     }
+    })
+    
+     box.forEach(function(box){
+     box.onmouseleave=function(e){
+        e.target.style.backgroundColor="chartreuse";
+     }
+    })
+</script>
+</html>
